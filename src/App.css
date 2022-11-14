@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+.tero-font {
+  font-family: 'Teko', sans-serif !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sign-in:hover {
+  cursor: pointer;
+  color: #66b2b2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hover:hover{
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sign-up:hover {
+  cursor: pointer;
+  color: #000000;
+  background-color: transparent;
+}
+
+.auth-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.auth-title {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.forgot-pass {
+  display: flex;
+  align-self: flex-start;
+}
+
+.footer-center {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 15px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mt-20 {
+  margin-top: 20px;
 }

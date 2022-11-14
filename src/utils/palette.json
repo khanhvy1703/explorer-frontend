@@ -1,0 +1,21 @@
+{
+  "primary": {
+    "base": "#66b2b2",
+    "dark": "#3d6a6a",
+    "light": "#b2d8d8",
+    "tint": "#84c1c1",
+    "shade" :"#284747",
+    "tone": "#5ba0a0"
+  },
+  "secondary": {},
+  "text": {
+    "light": "#d9d9d9",
+    "black": "#000000",
+    "white": "#ffffff",
+    "black4": "#323232"
+  },
+  "success": {},
+  "error": {},
+  "warning": {},
+  "border": {}
+}
