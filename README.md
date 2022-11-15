@@ -1,3 +1,6 @@
+Explorer is an web app where you can search for restaurants in your location, check the restaurants's ratings, rate the restaunts and make comments.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
