@@ -22,7 +22,6 @@ interface IRegisterProps {
 
 export default function Register({ onClose, onSwitch }: IRegisterProps) {
 	const [username, setUsername] = useState('');
-	const [displayname, setDisplayname] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
@@ -34,9 +33,6 @@ export default function Register({ onClose, onSwitch }: IRegisterProps) {
 	const handleRegister = () => {
 		if (!username) {
 			alert('username error');
-			return;
-		} else if (!displayname) {
-			alert('display name error');
 			return;
 		} else if (!email) {
 			alert('email error');
@@ -74,7 +70,7 @@ export default function Register({ onClose, onSwitch }: IRegisterProps) {
 					{/* Username */}
 					<FormLabel fontWeight='600' fontSize='14px'>
 						<span>Username</span>
-						<Text fontSize='10px' fontWeight='500'>
+						<Text fontSize='12px' fontWeight='500'>
 							You won't be able to change it later. Choose carefully.
 						</Text>
 					</FormLabel>
@@ -86,18 +82,6 @@ export default function Register({ onClose, onSwitch }: IRegisterProps) {
 						autoFocus
 						spellCheck={false}
 						onChange={(e) => setUsername(e.target.value)}
-					/>
-					{/* Displayname */}
-					<FormLabel fontWeight='600' fontSize='14px' marginTop='10px'>
-						Display name
-					</FormLabel>
-					<Input
-						fontSize='16px'
-						pr='4.5rem'
-						type='text'
-						placeholder='Enter your name'
-						spellCheck={false}
-						onChange={(e) => setDisplayname(e.target.value)}
 					/>
 					{/* Email */}
 					<FormLabel fontWeight='600' fontSize='14px' marginTop='10px'>

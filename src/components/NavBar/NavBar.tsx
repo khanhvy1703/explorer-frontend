@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import palette from '../../utils/palette.json';
 import styled from 'styled-components';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Box, Stack, Text } from '@chakra-ui/react';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Box, Stack } from '@chakra-ui/react';
 import BrandName from '../BrandName/BrandName';
 import ManageAuth from './ManageAuth';
 import auth from '../../utils/firebase-config';
+import { signOut } from 'firebase/auth';
 
 const NavWrap = styled(Container)`
 	margin: 0 auto;
@@ -13,29 +14,47 @@ const NavWrap = styled(Container)`
 `;
 
 export default function NavBar() {
+	const [isFetching, setIsFetching] = useState(true);
 	const [show, setShow] = useState(false); // show Modal
 	const [isSignIn, setSignIn] = useState(false);
-	const [user, setUser] = useState(true);
+	const [user, setUser] = useState(false);
 
 	useEffect(() => {
-		auth.onAuthStateChanged(userCre => {
-			if (userCre) {
-				setUser(true)
+		setTimeout(function () {
+			console.log('Delayed for 0.5 second.');
+			setIsFetching(false);
+		}, 500);
+	}, [isFetching]);
+
+	useEffect(() => {
+		auth.onAuthStateChanged((userCred) => {
+			if (userCred) {
+				setUser(true);
 			}
-		})
-	})
+		});
+	}, [user]);
 
 	const handleModalClose = () => setShow(false);
-
 	const handleSignInModal = () => {
 		setSignIn(true);
 		setShow(true);
 	};
-
 	const hadnleRegisterModal = () => {
 		setSignIn(false);
 		setShow(true);
 	};
+	const handleSignOut = () => {
+		signOut(auth).then(() => {
+			setUser(false);
+		}).catch((error) => {
+			alert(error.message);
+			return;
+		});
+	};
+
+	if (isFetching) {
+		return <></>;
+	}
 
 	return (
 		<Navbar
@@ -61,27 +80,49 @@ export default function NavBar() {
 								<Box marginLeft='5px'>Home</Box>
 							</Flex>
 						</Nav.Link> */}
-						{user ? <Text>Welcome</Text> : <Stack
-							direction='row'
-							spacing='20px'
-							align='center'
-							fontWeight='800'
-						>
-							<Box className='sign-in' onClick={handleSignInModal}>
-								Sign in
-							</Box>
-							<Box
-								className='sign-up'
-								onClick={hadnleRegisterModal}
-								backgroundColor={palette.primary.base}
-								border={`2px solid ${palette.primary.base}`}
-								p={2}
-								color={palette.text.white}
-								borderRadius={4}
+						{user ? (
+							<NavDropdown
+								title={
+									<span style={{ fontWeight: 600, marginRight: '5px' }}>
+										Hello
+									</span>
+								}
+								id='basic-nav-dropdown'
 							>
-								Sign up
-							</Box>
-						</Stack>}
+								<NavDropdown.Item href='#'>
+									<span style={{ fontSize: '14px' }}>Profile</span>
+								</NavDropdown.Item>
+								<NavDropdown.Item href='#'>
+									<span style={{ fontSize: '14px' }}>Settings</span>
+								</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href='#'>
+									<span onClick={handleSignOut} style={{ fontSize: '14px' }}>Sign out</span>
+								</NavDropdown.Item>
+							</NavDropdown>
+						) : (
+							<Stack
+								direction={['column', 'row']}
+								spacing='20px'
+								align='center'
+								fontWeight='800'
+							>
+								<Box className='sign-in' onClick={handleSignInModal}>
+									Sign in
+								</Box>
+								<Box
+									className='sign-up'
+									onClick={hadnleRegisterModal}
+									backgroundColor={palette.primary.base}
+									border={`2px solid ${palette.primary.base}`}
+									p='7px'
+									color={palette.text.white}
+									borderRadius={4}
+								>
+									Sign up
+								</Box>
+							</Stack>
+						)}
 					</Nav>
 				</Navbar.Collapse>
 			</NavWrap>
