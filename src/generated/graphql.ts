@@ -15,25 +15,30 @@ export type Scalars = {
 
 export type BrowseRestaurantInfo = {
   __typename?: 'BrowseRestaurantInfo';
-  alias: Scalars['String'];
-  cuisine?: Maybe<Array<Scalars['String']>>;
+  alias?: Maybe<Scalars['String']>;
+  cuisine?: Maybe<Array<Maybe<Scalars['String']>>>;
   image?: Maybe<Scalars['String']>;
   isPermanentlyClosed?: Maybe<Scalars['Boolean']>;
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   numReview?: Maybe<Scalars['Int']>;
-  price: Scalars['String'];
-  rating: Scalars['Float'];
-  restaurantId: Scalars['String'];
-  transactions?: Maybe<Array<Scalars['String']>>;
+  price?: Maybe<Scalars['String']>;
+  rating?: Maybe<Scalars['Float']>;
+  restaurantId?: Maybe<Scalars['String']>;
+  transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
 };
 
 export type DailyOpenHours = {
   __typename?: 'DailyOpenHours';
   day?: Maybe<Scalars['Int']>;
-  end: Scalars['String'];
+  end?: Maybe<Scalars['String']>;
   isOvernight?: Maybe<Scalars['Boolean']>;
-  start: Scalars['String'];
+  start?: Maybe<Scalars['String']>;
+};
+
+export type LatLonPosition = {
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
 };
 
 export type OpenHours = {
@@ -55,25 +60,26 @@ export type QueryRestaurantDetailArgs = {
 
 
 export type QueryRestaurantsByLocationArgs = {
-  location: Scalars['String'];
+  location1?: InputMaybe<Scalars['String']>;
+  location2?: InputMaybe<LatLonPosition>;
 };
 
 export type RestaurantDetail = {
   __typename?: 'RestaurantDetail';
-  alias: Scalars['String'];
-  cuisine?: Maybe<Array<Scalars['String']>>;
+  alias?: Maybe<Scalars['String']>;
+  cuisine?: Maybe<Array<Maybe<Scalars['String']>>>;
   image?: Maybe<Scalars['String']>;
   isCurrentlyOpen?: Maybe<Scalars['Boolean']>;
   isPermanentlyClosed?: Maybe<Scalars['Boolean']>;
   location?: Maybe<Scalars['String']>;
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
   numReview?: Maybe<Scalars['Int']>;
   openHours?: Maybe<Array<Maybe<OpenHours>>>;
   phone?: Maybe<Scalars['String']>;
   photos?: Maybe<Array<Maybe<Scalars['String']>>>;
-  price: Scalars['String'];
-  rating: Scalars['Float'];
-  restaurantId: Scalars['String'];
-  transactions?: Maybe<Array<Scalars['String']>>;
+  price?: Maybe<Scalars['String']>;
+  rating?: Maybe<Scalars['Float']>;
+  restaurantId?: Maybe<Scalars['String']>;
+  transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/client';
 import palette from '../utils/palette.json';
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +21,7 @@ import {
 	useDisclosure,
 } from '@chakra-ui/react';
 import { GET_RESTAURANTS_BY_LOCATION } from '../graphql/queries/getAllRestaurantsByLocation';
-import { useQuery } from '@apollo/client';
+import BrowseRestaurantContainer from '../components/BrowseRestaurant/BrowseRestaurantContainer';
 
 interface IHomePageProps {
 	lat?: number;
@@ -115,6 +116,7 @@ export default function HomePage({ lat, lng }: IHomePageProps) {
 				<Text className='tero-font' fontSize='36px' fontWeight='600'>
 					{current ? 'Restaurants nearby' : `Restaurants in ${showLocation}`}
 				</Text>
+				<BrowseRestaurantContainer restaurants={data.RestaurantsByLocation}/>
 			</Container>
 		</div>
 	);
