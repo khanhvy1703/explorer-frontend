@@ -14,17 +14,9 @@ const NavWrap = styled(Container)`
 `;
 
 export default function NavBar() {
-	const [isFetching, setIsFetching] = useState(true);
 	const [show, setShow] = useState(false); // show Modal
 	const [isSignIn, setSignIn] = useState(false);
 	const [user, setUser] = useState(false);
-
-	useEffect(() => {
-		setTimeout(function () {
-			console.log('Delayed for 0.5 second.');
-			setIsFetching(false);
-		}, 500);
-	}, [isFetching]);
 
 	useEffect(() => {
 		auth.onAuthStateChanged((userCred) => {
@@ -52,10 +44,6 @@ export default function NavBar() {
 		});
 	};
 
-	if (isFetching) {
-		return <></>;
-	}
-
 	return (
 		<Navbar
 			className='nav border-bottom navbar-bg'
@@ -67,7 +55,7 @@ export default function NavBar() {
 				minHeight: '55px',
 			}}
 		>
-			<NavWrap>
+			<Container>
 				<Navbar.Brand href='/' className='nav-brand'>
 					<BrandName />
 				</Navbar.Brand>
@@ -125,7 +113,7 @@ export default function NavBar() {
 						)}
 					</Nav>
 				</Navbar.Collapse>
-			</NavWrap>
+			</Container>
 			<ManageAuth
 				show={show}
 				isSignIn={isSignIn}
