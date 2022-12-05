@@ -26,6 +26,7 @@ export type BrowseRestaurantInfo = {
   restaurantId?: Maybe<Scalars['String']>;
   transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
+  yelpURL?: Maybe<Scalars['String']>;
 };
 
 export type DailyOpenHours = {
@@ -82,4 +83,5 @@ export type RestaurantDetail = {
   restaurantId?: Maybe<Scalars['String']>;
   transactions?: Maybe<Array<Maybe<Scalars['String']>>>;
   yelpReview?: Maybe<Scalars['Int']>;
+  yelpURL?: Maybe<Scalars['String']>;
 };

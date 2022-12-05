@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import { BrowseRestaurantInfo } from '../../generated/graphql';
 import BrowseRestaurantCard from './BrowseRestaurantCard';
 
@@ -10,12 +10,15 @@ interface IBrowseRestaurantContainerProps {
 export default function BrowseRestaurantContainer({
 	restaurants,
 }: IBrowseRestaurantContainerProps) {
-  console.log(restaurants)
 	return (
 		<>
 			{Array.isArray(restaurants) ? (
 				restaurants.map((restaurant, index) => {
-					return <div key={index}>{restaurant.alias}</div>;
+					return (
+					<Box key={index}>
+						<BrowseRestaurantCard {...restaurant} />
+						{index !== restaurants.length - 1 && <Divider />}
+					</Box>)
 				})
 			) : (
 				<Box>Sorry we can't find any restaurants</Box>
