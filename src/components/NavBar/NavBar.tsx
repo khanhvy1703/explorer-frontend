@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import palette from '../../utils/palette.json';
-import styled from 'styled-components';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Box, Stack } from '@chakra-ui/react';
 import BrandName from '../BrandName/BrandName';
 import ManageAuth from './ManageAuth';
 import auth from '../../utils/firebase-config';
 import { signOut } from 'firebase/auth';
-
-const NavWrap = styled(Container)`
-	margin: 0 auto;
-	max-width: 1500px;
-`;
 
 export default function NavBar() {
 	const [show, setShow] = useState(false); // show Modal

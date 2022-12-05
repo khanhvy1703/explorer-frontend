@@ -66,3 +66,8 @@
 		flex-direction: column;
 	}
 }
+
+.yelp-hover:hover {
+  text-decoration: none;
+  color: black
+}
