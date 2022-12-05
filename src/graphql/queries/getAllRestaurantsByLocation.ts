@@ -14,6 +14,7 @@ export const GET_RESTAURANTS_BY_LOCATION = gql(/* GraphQL */ `
       cuisine
       transactions
       isPermanentlyClosed
+      yelpURL
     }
   }
 `);
