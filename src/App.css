@@ -14,9 +14,16 @@
 .hover:hover{
   cursor: pointer;
 }
+
 .text-hover:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.view-restaurant-hover:hover{
+  cursor: pointer;
+  text-decoration: none !important;
+  color: black
 }
 
 .sign-up:hover {

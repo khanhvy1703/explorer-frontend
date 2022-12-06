@@ -17,6 +17,7 @@ export default function BrowseRestaurantCard({
 	yelpURL,
 	price,
 	transactions,
+	restaurantId,
 }: BrowseRestaurantInfo) {
 	const getImage = image ?? noImage;
 	return (
@@ -89,7 +90,8 @@ export default function BrowseRestaurantCard({
 						})}
 					</Flex>
 				)}
-				<Box
+				<Link
+					href={`/restaurant-info/${restaurantId}`}
 					marginTop='auto'
 					marginRight='auto'
 					bg='#90b099'
@@ -97,9 +99,10 @@ export default function BrowseRestaurantCard({
 					fontWeight='600'
 					padding='5px 10px'
 					borderRadius='5px'
+					className='view-restaurant-hover'
 				>
 					View this restaurant
-				</Box>
+				</Link>
 			</Flex>
 		</Flex>
 	);
