@@ -10,7 +10,6 @@ interface IBrowseRestaurantContainerProps {
 export default function BrowseRestaurantContainer({
 	restaurants,
 }: IBrowseRestaurantContainerProps) {
-	console.log(restaurants)
 	return (
 		<>
 			{Array.isArray(restaurants) ? (

@@ -8,6 +8,10 @@ import threeHalf from '../assets/regular_3_half.png'
 import four from '../assets/regular_4.png'
 import fourHalf from '../assets/regular_4_half.png'
 import five from '../assets/regular_5.png'
+import { DailyOpenHours, OpenHours } from '../generated/graphql'
+import { getDay} from 'date-fns'
+
+export const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 export const getYelpRatingImage = (rating: number) => {
   switch(rating) {
@@ -23,5 +27,26 @@ export const getYelpRatingImage = (rating: number) => {
     case 0: 
     default: 
     return zero;
+  }
+}
+
+export function getOpenHourOfCurrentDay({dailyOpenHours}:OpenHours) {
+  const currentDay = getDay(Date.now())
+  const openTime = dailyOpenHours?.[currentDay]
+  const startTime = openTime?.start
+  const endTime = openTime?.end
+  return startTime && endTime && `${startTime} - ${endTime}`
+}
+
+export function numberOrNA(input?: number):string {
+  return input ? input?.toString() : 'N/A'
+}
+
+export function getDailyHoursInfo({day, start, end}:DailyOpenHours) {
+  const currentDay = getDay(Date.now())
+  return {
+    dayOfWeek: day === null || day === undefined ? 'N/A' : days[day],
+    isCurrentDay: currentDay === day,
+    openTime: start && end && `${start} - ${end}`
   }
 }
