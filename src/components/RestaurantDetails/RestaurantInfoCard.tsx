@@ -68,7 +68,7 @@ export default function RestaurantInfoCard({
 }: RestaurantDetail) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
-		<Flex marginTop='10px' flexDirection='row'>
+		<Flex flexDirection='row'>
 			<Image
 				height='300px'
 				width='700px'
@@ -78,7 +78,7 @@ export default function RestaurantInfoCard({
 			<Flex marginLeft='20px' flexDirection='column' width='100%'>
 				{/* Changes this one to location 
 				Ex: New York > Upper West Side*/}
-				<Text fontSize='12px' color='grey' marginBottom='5px'>
+				<Text fontSize='12px' color='grey' marginTop='5px'>
 					Restaurant in this area
 				</Text>
 				<Divider orientation='horizontal' />

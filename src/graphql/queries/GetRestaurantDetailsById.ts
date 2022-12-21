@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const GET_RESTAURANTS_DETAILS_BY_ID = gql(/* GraphQL */ `
-  query RestaurantDetail($restaurantId: String!) {
-    RestaurantDetail(restaurantId: $restaurantId) {
+export const GET_RESTAURANTS_DETAILS = gql(/* GraphQL */ `
+  query RestaurantDetail($restaurantAlias: String!) {
+    RestaurantDetail(restaurantAlias: $restaurantAlias) {
       restaurantId
       alias
       name
@@ -18,13 +18,13 @@ export const GET_RESTAURANTS_DETAILS_BY_ID = gql(/* GraphQL */ `
       location
       photos
       openHours {
-        hoursType
         dailyOpenHours {
           day
           start
           end
           isOvernight
         }
+        hoursType
       }
       phone
       yelpURL

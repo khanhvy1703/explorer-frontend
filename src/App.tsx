@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Footer } from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './screens/homepage';
 import RestaurantHomePage from './screens/restaurant';
@@ -36,8 +37,9 @@ function App() {
 			<NavBar />
 			<Routes>
 				<Route path='/' element={<HomePage lat={lat} lng={lng} />} />
-				<Route path='/restaurant-info/:restaurantId' element={<RestaurantHomePage />} />
+				<Route path='/restaurant-info/:restaurantAlias' element={<RestaurantHomePage />} />
 			</Routes>
+			<Footer />
 		</BrowserRouter>
 	);
 }

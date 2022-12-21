@@ -17,7 +17,6 @@ export default function BrowseRestaurantCard({
 	yelpURL,
 	price,
 	transactions,
-	restaurantId,
 }: BrowseRestaurantInfo) {
 	const getImage = image ?? noImage;
 	return (
@@ -91,7 +90,7 @@ export default function BrowseRestaurantCard({
 					</Flex>
 				)}
 				<Link
-					href={`/restaurant-info/${restaurantId}`}
+					href={`/restaurant-info/${alias}`}
 					marginTop='auto'
 					marginRight='auto'
 					bg='#90b099'
