@@ -1,7 +1,9 @@
 import { CodegenConfig } from '@graphql-codegen/cli';
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const config: CodegenConfig = {
-  schema: 'http://localhost:4000/',
+  schema: process.env.REACT_APP_GRAPHQL_API,
   documents: ['src/**/*.tsx'],
   generates: {
     './src/generated/': {

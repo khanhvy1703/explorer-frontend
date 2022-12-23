@@ -56,7 +56,7 @@ export type Query = {
 
 
 export type QueryRestaurantDetailArgs = {
-  restaurantId: Scalars['String'];
+  restaurantAlias: Scalars['String'];
 };
 
 
